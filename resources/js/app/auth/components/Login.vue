@@ -79,7 +79,6 @@
 
 <script>
 import { mapActions } from "vuex";
-
 export default {
     data() {
         return {
@@ -92,7 +91,6 @@ export default {
         ...mapActions({
             login: "auth/login"
         }),
-
         submit() {
             this.login({
                 payload: {
@@ -100,6 +98,8 @@ export default {
                     password: this.password
                 },
                 context: this
+            }).then((result) => {
+                this.$router.replace({ name: "home" });
             });
         }
     }
